@@ -32,4 +32,23 @@ window.onload = function () {
       return num;
     }
   }
+
+  //暫停計時器
+  pause.onclick = function () {
+    clearInterval(timer);
+  };
+
+  //重啟計時器 1.數據清空（總秒數清空）2.畫面顯示歸零
+  reset.onclick = function () {
+    //保險起見再停止計時器一次
+    clearInterval(timer);
+
+    //1.清空數據
+    count = 0;
+
+    //2.畫面歸零
+    sec.innerHTML = "00";
+    min.innerHTML = "00";
+    hr.innerHTML = "00";
+  };
 };
