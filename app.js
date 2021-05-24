@@ -18,11 +18,18 @@ window.onload = function () {
     timer = setInterval(function () {
       count++;
       //根據count來改變顯示的時分秒的值
-      sec.innerHTML = count % 60;
-      min.innerHTML = parseInt(count / 60) % 60;
-      hr.innerHTML = parseInt(count / 60 / 60);
+      sec.innerHTML = lessThanTen(count % 60);
+      min.innerHTML = lessThanTen(parseInt(count / 60) % 60);
+      hr.innerHTML = lessThanTen(parseInt(count / 60 / 60));
     }, 1000);
   };
 
-  console.log(start);
+  //處理個位數字沒顯示00
+  function lessThanTen(num) {
+    if (num < 10) {
+      return "0" + num;
+    } else {
+      return num;
+    }
+  }
 };
